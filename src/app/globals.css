@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white antialiased;
+    background-image:
+      radial-gradient(ellipse 800px 500px at 15% -10%, rgba(79, 107, 255, 0.25), transparent),
+      radial-gradient(ellipse 700px 500px at 85% 0%, rgba(138, 77, 255, 0.18), transparent),
+      radial-gradient(ellipse 600px 400px at 50% 100%, rgba(0, 194, 255, 0.12), transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-primary-500/40;
+  }
+
+  /* Visible keyboard focus, kept subtle but real */
+  :focus-visible {
+    outline: 2px solid rgba(79, 107, 255, 0.8);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Core glass surface used by every card/panel */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card {
+    @apply glass rounded-xl shadow;
+    transition: transform 0.35s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .glass-card-hover:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .text-gradient {
+    background-image: linear-gradient(90deg, #ffffff, #a7b4ff, #71e5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-6 font-semibold text-white transition-all duration-medium;
+    height: 52px;
+    background-image: linear-gradient(90deg, #4f6bff, #7b61ff);
+    box-shadow: 0 0 0 rgba(79, 107, 255, 0);
+  }
+  .btn-primary:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(79, 107, 255, 0.45);
+  }
+  .btn-primary:disabled {
+    @apply opacity-50;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    @apply glass inline-flex items-center justify-center gap-2 rounded-md px-6 font-medium text-white transition-all duration-medium;
+    height: 52px;
+  }
+  .btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 font-medium text-white/70 transition-all duration-medium;
+    height: 44px;
+  }
+  .btn-ghost:hover {
+    @apply text-white;
+    text-shadow: 0 0 20px rgba(79, 107, 255, 0.6);
+  }
+
+  .input-glass {
+    @apply glass w-full rounded-md px-4 text-white placeholder-white/40 transition-all duration-medium;
+    height: 52px;
+  }
+  .input-glass:focus {
+    border-color: rgba(79, 107, 255, 0.6);
+    box-shadow: 0 0 0 4px rgba(79, 107, 255, 0.15);
+    outline: none;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-1 text-small font-semibold;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
