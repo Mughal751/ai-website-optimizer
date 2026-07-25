@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 import { GoogleGenAI } from '@google/genai';
 import { z } from 'zod';
 import { authOptions } from '@/lib/auth';
-import { connectToDatabase } from '@/lib/mongodb';
+import { connectToDatabase } from '@/lib/mongodb'; 
 import { Scan } from '@/models/Scan';
 import { checkRateLimit } from '@/lib/rateLimit';
 
