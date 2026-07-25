@@ -59,7 +59,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-lite',
+     model: 'gemini-3.5-flash-lite',
       contents: `You are a website optimization assistant. Answer the user's question using ONLY the structured scan data below as ground truth. Be specific and reference the actual detected issues, scores, and recommendations. If the data does not contain enough information to answer, say so plainly rather than guessing.
 
 Scan data:
